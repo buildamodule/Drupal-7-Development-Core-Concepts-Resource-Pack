@@ -160,7 +160,7 @@ function input_more_form($form, &$form_state) {
   );
   
   // When submitted, check for value of OS, and populate os_verify.
-  if (isset($form_state['values']['os'])) { // Fixed this line, was throwing an error in the original video code.
+  if (isset($form_state['values']['os']) && $form_state['values']['os'] != '') { // Fixed this line, was throwing an error in the original video code.
     $form['computer_stats']['os_verify']['#type'] = 'checkbox';
     $form['computer_stats']['os_verify']['#title'] = t('Are you sure you are using @os?', array('@os' => $form_state['values']['os']));
   }
